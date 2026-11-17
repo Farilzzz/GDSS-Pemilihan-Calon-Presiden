@@ -1,0 +1,34 @@
+# Local secrets (templates only are versioned)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+# Generated dependencies/build/cache
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+# Runtime databases, logs, backups, local evidence
+*.sqlite
+*.sqlite3
+*.db
+*.log
+*.bak
+*.backup
+*.sql.gz
+backups/
+logs/
+e2e-evidence/
+.env.local
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
