@@ -1,6 +1,24 @@
 # Verification report
 
-## Publication preparation: newly executed checks
+## Dependency remediation: newly executed checks (2026-11-18)
+
+This section supersedes the earlier preparation results below. Verified with Node 24.22.0 / npm 11.19.1 after exact-pinning React Router DOM 7.18.5, Vite 6.4.6, and Vitest 4.1.12 and regenerating the lockfile.
+
+| Check | Result |
+|---|---|
+| Clean `npm ci` | PASS |
+| `npm test` | PASS: 52 tests in 10 files |
+| `npm run typecheck` | PASS |
+| `npm run build` | PASS: 2557 modules transformed |
+| `npm ls --all --json` | PASS: exit 0, no invalid dependency tree |
+| PHP syntax `php -l` | PASS: 8/8 tracked PHP files |
+| `php backend/tests/run.php` | PASS: 16/16, SQLite in-memory only |
+| Full `npm audit --json` | 12 high, 0 critical, 0 moderate; exit 1 |
+| `npm audit --omit=dev --json` | 0 findings; exit 0 |
+
+The immediate pre-remediation baseline was 18 affected packages (5 moderate, 11 high, 2 critical), including 2 moderate production findings. All remaining affected nodes are development-only. See [security review](SECURITY_REVIEW.md) for the single underlying glob advisory, mitigation, and limitations. No application database, main `.env`, authenticated HTTP flow, or browser E2E was accessed or changed in remediation. Existing HTTP/MariaDB evidence remains historical.
+
+## Earlier publication preparation (superseded dependency results)
 
 Performed against the separate publication copy, not the original project:
 

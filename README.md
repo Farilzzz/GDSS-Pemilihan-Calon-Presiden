@@ -14,7 +14,7 @@ Simulasi akademik pengambilan keputusan kelompok menggunakan React + TypeScript,
 
 ## Prasyarat
 
-Windows dengan XAMPP (PHP 8.1+ dan MariaDB; diuji sebelumnya PHP/XAMPP + MariaDB 10.4.32), ekstensi PDO MySQL. PDO SQLite diperlukan hanya untuk regression SQLite. Node.js 20.19+ atau 22 LTS dan npm. Tidak memerlukan Composer.
+Windows dengan XAMPP (PHP 8.1+ dan MariaDB; diuji sebelumnya PHP/XAMPP + MariaDB 10.4.32), ekstensi PDO MySQL. PDO SQLite diperlukan hanya untuk regression SQLite. Node.js 22 LTS (22.12+) atau 24 LTS dan npm direkomendasikan; verifikasi remediation memakai Node 24.22.0 / npm 11.19.1. Rentang engine tooling masih menerima Node 20.19+, tetapi lini Node 20 sudah EOL dan tidak direkomendasikan. Tidak memerlukan Composer.
 
 ## Instalasi lokal Windows (XAMPP + Vite)
 
@@ -64,7 +64,7 @@ npm run build
 
 Dari root, regression backend `C:/xampp/php/php.exe backend/tests/run.php` membuat SQLite **in-memory**, tidak memakai database aplikasi. `http_test.php` dan `comprehensive_integration_test.php` membuat SQLite sementara dan server PHP sendiri; periksa ketersediaan port 8085–8095 / 8089 sebelum menjalankannya. SQLite bukan bukti integrasi MariaDB. Suite HTTP tambahan ini belum dijalankan ulang dalam persiapan publikasi.
 
-Untuk pengujian MariaDB, gunakan database test terpisah dan environment proses terpisah. **Ubah seluruh CREATE DATABASE dan USE dalam salinan SQL ke nama test sebelum import**, kemudian pastikan DSN mengarah hanya ke test. Jangan menjalankan import, reset, atau fixture pada database utama. Tidak ada operasi database/server HTTP dilakukan selama persiapan publikasi ini. Laporan HTTP/MariaDB sebelumnya dibedakan dari hasil regression baru; authenticated browser E2E belum diuji.
+Untuk pengujian MariaDB, gunakan database test terpisah dan environment proses terpisah. **Ubah seluruh CREATE DATABASE dan USE dalam salinan SQL ke nama test sebelum import**, kemudian pastikan DSN mengarah hanya ke test. Jangan menjalankan import, reset, atau fixture pada database utama. Hanya regression SQLite in-memory dijalankan ulang; tidak ada operasi database aplikasi atau server HTTP dilakukan selama persiapan publikasi ini. Laporan HTTP/MariaDB sebelumnya dibedakan dari hasil regression baru; authenticated browser E2E belum diuji.
 
 ## Keamanan dan batasan
 
